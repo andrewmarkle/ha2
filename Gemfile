@@ -12,8 +12,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'bourbon', '~> 4.2', '>= 4.2.6'
 gem 'devise', github: 'plataformatec/devise'
 gem 'ice_cube', '~> 0.13.3'
+gem 'neat', '~> 1.7', '>= 1.7.2'
 gem 'pundit', '~> 1.1'
 
 group :development do
@@ -25,6 +27,7 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara', '~> 2.6', '>= 2.6.2'
   gem "rails-controller-testing", :git => "https://github.com/rails/rails-controller-testing"
   gem "rspec-rails", "3.5.0.beta1"
 end

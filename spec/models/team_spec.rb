@@ -1,4 +1,16 @@
+# == Schema Information
+#
+# Table name: teams
+#
+#  id         :integer          not null, primary key
+#  company_id :integer          indexed
+#  user_id    :integer          indexed
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
+require 'support/shoulda_matchers_setup'
 
 RSpec.describe Team, type: :model do
   context 'validations' do

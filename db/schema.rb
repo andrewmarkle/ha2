@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209155234) do
+ActiveRecord::Schema.define(version: 20160209163702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,24 @@ ActiveRecord::Schema.define(version: 20160209155234) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["owner_id"], name: "index_companies_on_owner_id", using: :btree
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.integer  "interval"
+    t.integer  "price"
+    t.boolean  "monday",     default: false, null: false
+    t.boolean  "tuesday",    default: false, null: false
+    t.boolean  "wednesday",  default: false, null: false
+    t.boolean  "thursday",   default: false, null: false
+    t.boolean  "friday",     default: false, null: false
+    t.boolean  "saturday",   default: false, null: false
+    t.boolean  "sunday",     default: false, null: false
+    t.boolean  "taxable",    default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["company_id"], name: "index_plans_on_company_id", using: :btree
   end
 
   create_table "teams", force: :cascade do |t|
@@ -57,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160209155234) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "plans", "companies"
   add_foreign_key "teams", "companies"
   add_foreign_key "teams", "users"
 end

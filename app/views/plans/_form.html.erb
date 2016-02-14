@@ -1,0 +1,77 @@
+<%= form_for(plan) do |f| %>
+  <% if plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+
+      <ul>
+      <% plan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :company_id %>
+    <%= f.text_field :company_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :interval %>
+    <%= f.number_field :interval %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :monday %>
+    <%= f.check_box :monday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tuesday %>
+    <%= f.check_box :tuesday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wednesday %>
+    <%= f.check_box :wednesday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :thursday %>
+    <%= f.check_box :thursday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :friday %>
+    <%= f.check_box :friday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :saturday %>
+    <%= f.check_box :saturday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sunday %>
+    <%= f.check_box :sunday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :taxable %>
+    <%= f.check_box :taxable %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
