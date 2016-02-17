@@ -1,0 +1,23 @@
+<%= form_for @company, url: {action: "create"} do |f| %>
+  <%= render 'shared/errors', object: @company %>
+  <div>
+    <%= f.label :name, "Company Name" %>
+    <%= f.text_field :name, placeholder: "Hound Industries" %>
+    <p>This will show up in menus and headings. This is your public-facing name that your clients see.</p>
+  </div>
+  <div>
+    <%= f.label :url %>
+    <%= f.text_field :url, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= f.label :time_zone %>
+    <%= f.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones) %>
+    <p>Set this to your current timezone.</p>
+  </div>
+
+  <%= button_tag(type: 'submit') do %>
+  Next
+  <% end %>
+<% end %>
+

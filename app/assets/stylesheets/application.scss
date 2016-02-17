@@ -24,3 +24,7 @@ body {
   background: #f2eff0;
   color: #4f4f4f;
 }
+
+section {
+  @include outer-container;
+}

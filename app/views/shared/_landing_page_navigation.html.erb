@@ -1,0 +1,15 @@
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link">    <%= link_to "HOUND", root_path, class: 'logo' %></li>
+      </ul>
+    </nav>
+    <div class="navigation-tools">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><%= link_to 'Sign In', new_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
+</header>

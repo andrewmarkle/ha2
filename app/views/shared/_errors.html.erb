@@ -1,0 +1,10 @@
+<% if object.errors.any? %>
+  <div class="alert alert-danger">
+      <h3>Oops!</h3>
+      <ul>
+    <% object.errors.full_messages.each do |message| %>
+      <li>Your <%= message.downcase %>.</li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

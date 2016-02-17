@@ -40,6 +40,13 @@ RSpec.describe Plan, type: :model do
     it 'returns false for all the booleans' do
       plan = Plan.new
       expect(plan.monday).to eq(false)
+      expect(plan.tuesday).to eq(false)
+      expect(plan.wednesday).to eq(false)
+      expect(plan.thursday).to eq(false)
+      expect(plan.friday).to eq(false)
+      expect(plan.saturday).to eq(false)
+      expect(plan.sunday).to eq(false)
+      expect(plan.taxable).to eq(false)
     end
   end
 end
