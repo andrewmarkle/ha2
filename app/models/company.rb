@@ -17,13 +17,11 @@
 #
 
 class Company < ApplicationRecord
-  belongs_to :owner, class_name: 'User'
-  has_many :users, through: :teams
-  has_many :teams, dependent: :destroy
+  has_many :users
 
-  validates :owner, presence: true
   validates :name, presence: true
   validates :time_zone,
             inclusion: { in: ActiveSupport::TimeZone.all.map(&:name) }
 
+  validates_format_of :url, :with => URI::regexp(%w(http https)), allow_blank: true
 end

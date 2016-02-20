@@ -15,6 +15,7 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  company_id             :integer          indexed
 #
 
 class User < ApplicationRecord
@@ -23,6 +24,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :company, through: :team
-  has_one :team, dependent: :destroy
+  belongs_to :company, required: false
 end

@@ -2,10 +2,8 @@ company_a:
   name: A Walk Apart
   url: http://awalkapart.com
   time_zone: Alaska
-  owner: user_a
 
 company_b:
   name: Ruff Stuff
   url: http://ruffstuffdogrunning.co
   time_zone: California
-  owner: user_b

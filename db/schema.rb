@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209163702) do
+ActiveRecord::Schema.define(version: 20160218001335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,15 +49,6 @@ ActiveRecord::Schema.define(version: 20160209163702) do
     t.index ["company_id"], name: "index_plans_on_company_id", using: :btree
   end
 
-  create_table "teams", force: :cascade do |t|
-    t.integer  "company_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_teams_on_company_id", using: :btree
-    t.index ["user_id"], name: "index_teams_on_user_id", using: :btree
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -71,11 +62,12 @@ ActiveRecord::Schema.define(version: 20160209163702) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "company_id"
+    t.index ["company_id"], name: "index_users_on_company_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "plans", "companies"
-  add_foreign_key "teams", "companies"
-  add_foreign_key "teams", "users"
+  add_foreign_key "users", "companies"
 end

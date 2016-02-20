@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe 'a new plan' do
+feature 'a user manages a plan' do
 
   it 'creates a new plan' do
 

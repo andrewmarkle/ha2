@@ -19,7 +19,7 @@ feature 'user signs in' do
   end
 
   scenario 'tries with invalid password' do
-    sign_in_with 'user_a@example.com', 'wrong_password'
+    sign_in_with 'user_b@example.com', 'wrong_password'
     page_should_display_sign_in_error
   end
 

@@ -9,9 +9,8 @@ class CompanyController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    @company.owner = current_user
     if @company.save
-      @company.users << @company.owner
+      @company.users << current_user
       redirect_to dashboard_url
     else
       render :new
@@ -41,6 +40,6 @@ class CompanyController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit(:name, :url, :owner_id, :time_zone)
+    params.require(:company).permit(:name, :url, :time_zone)
   end
 end
