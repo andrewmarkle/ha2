@@ -12,9 +12,9 @@
   </div>
 
   <div>
-    <%= f.label :time_zone %>
-    <%= f.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones) %>
-    <p>Set this to your current timezone.</p>
+    <%= f.label :phone_number, "Phone Number" %>
+    <%= f.text_field(:phone_number) %>
+    <p>This is your public-facing telephone number where you're clients can reach you at.</p>
   </div>
 
   <%= button_tag(type: 'submit') do %>

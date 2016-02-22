@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218001335) do
+ActiveRecord::Schema.define(version: 20160221171048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,15 +20,12 @@ ActiveRecord::Schema.define(version: 20160218001335) do
     t.string   "name"
     t.string   "url"
     t.string   "phone_number"
-    t.integer  "owner_id"
-    t.string   "time_zone"
     t.string   "stripe_user_id"
     t.string   "stripe_access_token"
     t.string   "stripe_publishable_key"
     t.string   "stripe_refresh_token"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.index ["owner_id"], name: "index_companies_on_owner_id", using: :btree
   end
 
   create_table "plans", force: :cascade do |t|

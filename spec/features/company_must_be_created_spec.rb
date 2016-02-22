@@ -17,7 +17,7 @@ feature 'User is forced to create a company' do
     expect(page).to have_css 'h1', text: 'Welcome!'
     fill_in 'Company Name', with: 'Walk it off'
     fill_in 'Company Website', with: 'http://walkitoff.ca'
-    select 'Alaska', from: 'company_time_zone'
+    fill_in 'Phone Number', with: '000-999-9938'
     click_button 'Next'
 
     expect(current_path).to eq(dashboard_path)

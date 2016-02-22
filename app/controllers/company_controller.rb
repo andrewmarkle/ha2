@@ -1,5 +1,5 @@
 class CompanyController < ApplicationController
-  skip_before_action :force_create_company, only: [:new, :create]
+  skip_before_action :force_user_to_create_company, only: [:new, :create]
   layout Proc.new { |controller| controller.current_user.company.present? ? "application" : "no_nav" }
 
   def new
