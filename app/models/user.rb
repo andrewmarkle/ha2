@@ -25,4 +25,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :company, required: false
+  delegate :name, to: :company, prefix: true
 end

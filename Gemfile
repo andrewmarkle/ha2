@@ -4,12 +4,13 @@ ruby '2.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
-gem 'rails', '5.0.0.beta2'
+gem 'listen', '~> 3.0'
+gem 'rails', '5.0.0.beta3'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 2.16'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-gem 'turbolinks'
+gem 'turbolinks', '~> 5.x'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'bourbon', '~> 4.2', '>= 4.2.6'
@@ -21,6 +22,11 @@ gem 'pundit', '~> 1.1'
 group :development do
   gem 'annotate', '~> 2.7'
   gem 'bullet', '~> 5.0'
+  gem 'guard', require: false
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent', require: false
+  gem 'rb-readline'
   gem 'spring'
   gem 'web-console', '~> 3.0'
 end

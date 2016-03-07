@@ -17,12 +17,14 @@
 @import "base/base";
 @import "neat";
 @import "normalize";
+@import "shared";
 @import "navigation";
 @import "flash";
+@import "landing_page";
 
 body {
-  background: #f2eff0;
-  color: #4f4f4f;
+  background: $light-gray;
+  color: $off-black;
 }
 
 section {

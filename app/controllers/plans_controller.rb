@@ -2,30 +2,33 @@
 #
 # Table name: plans
 #
-#  id         :integer          not null, primary key
-#  company_id :integer          indexed
-#  name       :string
-#  interval   :integer
-#  price      :integer
-#  monday     :boolean          default(FALSE), not null
-#  tuesday    :boolean          default(FALSE), not null
-#  wednesday  :boolean          default(FALSE), not null
-#  thursday   :boolean          default(FALSE), not null
-#  friday     :boolean          default(FALSE), not null
-#  saturday   :boolean          default(FALSE), not null
-#  sunday     :boolean          default(FALSE), not null
-#  taxable    :boolean          default(FALSE), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id             :integer          not null, primary key
+#  company_id     :integer          indexed
+#  name           :string
+#  interval       :integer
+#  monday         :boolean          default(FALSE), not null
+#  tuesday        :boolean          default(FALSE), not null
+#  wednesday      :boolean          default(FALSE), not null
+#  thursday       :boolean          default(FALSE), not null
+#  friday         :boolean          default(FALSE), not null
+#  saturday       :boolean          default(FALSE), not null
+#  sunday         :boolean          default(FALSE), not null
+#  taxable        :boolean          default(FALSE), not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  total_price    :integer
+#  price_per_walk :integer
 #
 
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
+  after_action :verify_policy_scoped
 
   # GET /plans
   # GET /plans.json
   def index
-    @plans = Plan.all
+    @plans = policy_scope(Plan).all
+    authorize @plans
   end
 
   # GET /plans/1
@@ -35,7 +38,8 @@ class PlansController < ApplicationController
 
   # GET /plans/new
   def new
-    @plan = Plan.new
+    @plan = policy_scope(Plan).new
+    authorize @plan
   end
 
   # GET /plans/1/edit
@@ -45,7 +49,7 @@ class PlansController < ApplicationController
   # POST /plans
   # POST /plans.json
   def create
-    @plan = Plan.new(plan_params)
+    @plan = policy_scope(Plan).new(plan_params)
 
     respond_to do |format|
       if @plan.save
@@ -56,6 +60,7 @@ class PlansController < ApplicationController
         format.json { render json: @plan.errors, status: :unprocessable_entity }
       end
     end
+    authorize @plan
   end
 
   # PATCH/PUT /plans/1
@@ -85,11 +90,12 @@ class PlansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_plan
-      @plan = Plan.find(params[:id])
+      @plan = policy_scope(Plan).find(params[:id])
+      authorize @plan
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:company_id, :name, :interval, :price, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :taxable)
+      params.require(:plan).permit(:company_id, :name, :interval, :price_per_walk, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :taxable)
     end
 end
