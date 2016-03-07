@@ -1,0 +1,43 @@
+#authentication {
+  @include span-columns(6);
+  @include shift(3);
+  margin-top: 60px;
+
+  section.form {
+    background: #fff;
+    padding: 26px 40px 40px 40px;
+    border-radius: 6px;
+
+    form {
+      div.field {
+        padding-top: 14px;
+      }
+      input {
+        margin-top: 6px;
+      }
+    }
+
+    label {
+      display: inline;
+      color: #000;
+      font-weight: normal;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .authentication-shared-links {
+    margin-top: 40px;
+    p {
+      text-align: center;
+      font-size: .9em;
+      font-weight: 300;
+    }
+  }
+}
+

@@ -21,9 +21,10 @@
 @import "navigation";
 @import "flash";
 @import "landing_page";
+@import "authentication";
 
 body {
-  background: $light-gray;
+  background: $subtle-gray;
   color: $off-black;
 }
 

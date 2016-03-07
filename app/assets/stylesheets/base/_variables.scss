@@ -16,17 +16,25 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
-$blue: #1565c0;
+$gray: #b9c2c4;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
+$subtle-gray: #f4f5f6;
+$off-black: #21110b;
+$blue: #2693d6;
+$purple: #92407e;
+$teal: #00adc4;
+$green: #91c575;
+$orange: #f38d36;
+$magenta: #c1335d;
 
 // Font Colors
 $base-font-color: $dark-gray;
 $action-color: $blue;
 
 // Border
-$base-border-color: $light-gray;
+$base-border-color: $gray;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
