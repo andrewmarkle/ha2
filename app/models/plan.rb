@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: plans
+# Table name plans
 #
 #  id             :integer          not null, primary key
 #  company_id     :integer          indexed
@@ -23,6 +23,25 @@
 class Plan < ApplicationRecord
   belongs_to :company
 
-  validates :name, :company, :total_price, :price_per_walk, :interval, presence: true
-  validates :total_price, :interval, :price_per_walk, numericality: { greater_than_or_equal_to: 0 }
+  validates :name, :company, :price_per_walk, :interval, presence: true
+  validates :interval, :price_per_walk, numericality: { greater_than_or_equal_to: 0 }
+
+  delegate :name, to: :company, prefix: true
+
+  def calculate_total_price_of_plan
+    price_per_walk * interval
+  end
+
+  def days
+    { monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday,
+      friday: friday, saturday: saturday, sunday: sunday }
+  end
+
+  def days_of_the_week
+    days.select {|k,v| v == true }.keys
+  end
+
+  def scheduled_days
+    days_of_the_week.map { |d| d.to_s.capitalize }
+  end
 end

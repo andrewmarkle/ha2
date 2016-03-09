@@ -21,7 +21,7 @@ feature "a User's Plan" do
     check "Monday"
     check "Tuesday"
 
-    click_button 'Create Plan'
+    click_button 'Create plan'
 
     expect(page).to have_text('New Plan')
     expect(page).to have_text('Monday')
@@ -30,7 +30,6 @@ feature "a User's Plan" do
     expect(page).not_to have_text('Wednesday')
     expect(page).to have_text('Plan successfully created!')
     expect(current_path).to eq(plan_path(Plan.last))
-    expect(page).to have_link payment_url(Plan.last.payment_guid)
   end
 
   scenario 'is updated' do
@@ -39,5 +38,6 @@ feature "a User's Plan" do
   scenario 'is destroyed' do
   end
 
-  scenario "is scoped to the user's company"
+  scenario "is scoped to the user's company" do
+  end
 end

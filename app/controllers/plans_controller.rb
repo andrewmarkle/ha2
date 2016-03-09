@@ -53,7 +53,8 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       if @plan.save
-        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
+        @plan.update(total_price: @plan.calculate_total_price_of_plan)
+        format.html { redirect_to @plan, notice: 'Plan successfully created!' }
         format.json { render :show, status: :created, location: @plan }
       else
         format.html { render :new }

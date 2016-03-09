@@ -1,6 +1,6 @@
 
 .green {
-  color: $green
+  color: $green;
 }
 
 .orange {
@@ -8,7 +8,12 @@
 }
 
 .teal {
-  color: $teal
+  color: $teal;
+}
+
+.teal-background {
+  background: $teal;
+  color: #fff;
 }
 
 .purple {
@@ -24,7 +29,16 @@
   color: $magenta
 }
 
+.blue {
+  color: $blue
+}
+
 
 .full-width {
   width: 100%;
+}
+
+div.left-half,
+div.right-half {
+ @include span-columns(6);
 }
