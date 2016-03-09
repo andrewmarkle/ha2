@@ -1,0 +1,29 @@
+plan_a:
+  company: company_a
+  name: This plan belongs to Company A
+  interval: 10
+  monday: true
+  tuesday: true
+  wednesday: true
+  thursday: true
+  friday: true
+  saturday: false
+  sunday: false
+  taxable: false
+  price_per_walk: 2000
+  total_price: 20000
+
+plan_b:
+  company: company_b
+  name: This plan belongs to Company B
+  interval: 10
+  monday: true
+  tuesday: true
+  wednesday: true
+  thursday: true
+  friday: true
+  saturday: false
+  sunday: false
+  taxable: false
+  price_per_walk: 2000
+  total_price: 20000

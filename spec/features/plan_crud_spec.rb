@@ -33,11 +33,23 @@ feature "a User's Plan" do
   end
 
   scenario 'is updated' do
+    visit plan_path(plans(:plan_b))
+    click_link 'Edit'
+    fill_in 'Name', with: 'Updated plan name'
+    click_button 'Update plan'
+
+    expect(current_path).to eq(plan_path(plans(:plan_b)))
+
+    expect(page).to have_text('Updated plan name')
+    expect(page).to have_text('Plan successfully updated!')
   end
 
   scenario 'is destroyed' do
-  end
+    visit plans_path
 
-  scenario "is scoped to the user's company" do
+    click_link 'Destroy'
+
+    expect(current_path).to eq(plans_path)
+    expect(page).to have_text('Plan successfully destroyed.')
   end
 end
