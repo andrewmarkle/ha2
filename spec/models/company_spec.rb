@@ -2,7 +2,7 @@
 #
 # Table name: companies
 #
-#  id                     :integer          not null, primary key
+#  id                     :uuid             not null, primary key
 #  name                   :string
 #  url                    :string
 #  phone_number           :string

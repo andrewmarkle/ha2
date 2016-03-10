@@ -1,20 +1,16 @@
-<header class="navigation" role="banner">
+<header class="in-app-navigation" role="banner">
   <div class="navigation-wrapper">
-    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <%= link_to dashboard_path, class: "logo" do %>
+      <img src="https://raw.githubusercontent.com/thoughtbot/empties/master/source/images/placeholder.png" alt="Logo Image">
+    <% end %>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">Menu</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link"><%= link_to "HOUND", dashboard_path, class: 'logo' %></li>
         <li class="nav-link"><%= link_to "Plans", plans_path %></li>
+        <li class="nav-link"><a href="javascript:void(0)">Clients</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">Schedule</a></li>
+        <li class="nav-link"><a href="javascript:void(0)">Settings</a></li>
       </ul>
     </nav>
-    <div class="navigation-tools">
-      <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link more"><a href="javascript:void(0)"><%= current_user.company_name %></a>
-          <ul class="submenu">
-            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
   </div>
 </header>

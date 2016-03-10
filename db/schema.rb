@@ -15,8 +15,9 @@ ActiveRecord::Schema.define(version: 20160225010030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "companies", force: :cascade do |t|
+  create_table "companies", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.string   "url"
     t.string   "phone_number"
@@ -28,8 +29,8 @@ ActiveRecord::Schema.define(version: 20160225010030) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "plans", force: :cascade do |t|
-    t.integer  "company_id"
+  create_table "plans", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "company_id"
     t.string   "name"
     t.integer  "interval"
     t.boolean  "monday",         default: false, null: false
@@ -44,10 +45,11 @@ ActiveRecord::Schema.define(version: 20160225010030) do
     t.datetime "updated_at",                     null: false
     t.integer  "total_price"
     t.integer  "price_per_walk"
-    t.index ["company_id"], name: "index_plans_on_company_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  add_index "plans", ["company_id"], name: "index_plans_on_company_id", using: :btree
+
+  create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -60,12 +62,11 @@ ActiveRecord::Schema.define(version: 20160225010030) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "company_id"
-    t.index ["company_id"], name: "index_users_on_company_id", using: :btree
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.uuid     "company_id"
   end
 
-  add_foreign_key "plans", "companies"
-  add_foreign_key "users", "companies"
+  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
 end

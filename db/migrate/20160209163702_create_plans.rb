@@ -1,7 +1,7 @@
 class CreatePlans < ActiveRecord::Migration[5.0]
   def change
-    create_table :plans do |t|
-      t.references :company, index: true, foreign_key: true
+    create_table :plans, id: :uuid do |t|
+      t.references :company, index: true, type: :uuid
       t.string :name
       t.integer :interval
       t.integer :price

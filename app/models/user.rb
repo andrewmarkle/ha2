@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :uuid             not null, primary key
 #  email                  :string           default(""), not null, indexed
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string           indexed
@@ -15,7 +15,7 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  company_id             :integer          indexed
+#  company_id             :uuid             indexed
 #
 
 class User < ApplicationRecord

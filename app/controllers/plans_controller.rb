@@ -2,8 +2,8 @@
 #
 # Table name: plans
 #
-#  id             :integer          not null, primary key
-#  company_id     :integer          indexed
+#  id             :uuid             not null, primary key
+#  company_id     :uuid             indexed
 #  name           :string
 #  interval       :integer
 #  monday         :boolean          default(FALSE), not null

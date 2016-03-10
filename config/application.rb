@@ -29,8 +29,7 @@ module Ha2
       generate.view_specs false
       generate.fixtures false
       generate.factory_girl false
+      generate.orm :active_record, primary_key_type: :uuid
     end
-
-    config.active_record.primary_key = :uuid
   end
 end
