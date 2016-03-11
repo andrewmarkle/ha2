@@ -38,7 +38,15 @@
   width: 100%;
 }
 
-div.left-half,
+div.left-half {
+  @include span-columns(6);
+  @include media($mobile) {
+    @include span-columns(6);
+  }
+}
 div.right-half {
- @include span-columns(6);
+  @include span-columns(6);
+  @include media($mobile) {
+    @include span-columns(6);
+  }
 }

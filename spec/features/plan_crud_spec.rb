@@ -9,7 +9,7 @@ feature "a User's Plan" do
   end
 
   scenario 'is created' do
-    click_link "Plans"
+    click_link "PLANS"
     expect(current_path).to eq(plans_path)
     click_link "Add New Plan"
 
@@ -29,7 +29,6 @@ feature "a User's Plan" do
     expect(page).to have_text('$100.00')
     expect(page).not_to have_text('Wednesday')
     expect(page).to have_text('Plan successfully created!')
-    expect(current_path).to eq(plan_path(Plan.last))
   end
 
   scenario 'is updated' do

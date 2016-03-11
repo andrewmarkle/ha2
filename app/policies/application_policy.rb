@@ -48,7 +48,7 @@ class ApplicationPolicy
     end
 
     def resolve
-      scope.where(company_id: user.company)
+      scope.where(company_id: user.company_id)
     end
   end
 end
