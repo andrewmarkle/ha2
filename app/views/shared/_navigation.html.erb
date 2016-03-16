@@ -10,6 +10,12 @@
         <li class="nav-link"><a href="javascript:void(0)">CLIENTS</a></li>
         <li class="nav-link"><a href="javascript:void(0)">SCHEDULE</a></li>
         <li class="nav-link"><a href="javascript:void(0)">SETTINGS</a></li>
+        <li class="nav-link hover-menu">
+        <a href="javascript:void(0)">SETTINGS</a>
+        <ul class="submenu">
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </li>
       </ul>
     </nav>
   </div>

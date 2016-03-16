@@ -1,5 +1,5 @@
 class DashboardPolicy < Struct.new(:user, :dashboard)
   def index?
-    true
+    true unless user.company.nil?
   end
 end

@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations"}
+  devise_for :users
 
-  devise_scope :user do
-    authenticated :user do
-      root to: 'dashboard#index', as: 'dashboard'
+  authenticated :user do
+    scope module: "company" do
       resources :plans
+      root to: 'dashboard#index', as: 'dashboard'
     end
-    resource :company, only: [:new, :create, :update, :edit], controller: 'company'
+    resource :company, only: [:new, :create], controller: 'company'
+  end
 
-    unauthenticated do
-      root to: 'landing_page#index', as: :root
-    end
+  unauthenticated do
+    root to: 'landing_page#index', as: :root
   end
 end
+
+

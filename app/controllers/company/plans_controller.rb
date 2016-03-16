@@ -20,14 +20,14 @@
 #  price_per_walk :integer
 #
 
-class PlansController < ApplicationController
+class Company::PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
-  after_action :verify_policy_scoped
+  # after_action :verify_policy_scoped
 
   # GET /plans
   # GET /plans.json
   def index
-    @plans = policy_scope(Plan).all
+    @plans = policy_scope(Plan)
     authorize @plans
   end
 
@@ -91,7 +91,7 @@ class PlansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_plan
-      @plan = policy_scope(Plan).find(params[:id])
+      @plan = policy_scope(Plan).find_by(id: params[:id])
       authorize @plan
     end
 
