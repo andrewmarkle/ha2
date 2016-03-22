@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bourbon', '~> 4.2', '>= 4.2.6'
 gem 'devise', '~> 4.0.0.rc1'
+gem 'font-awesome-sass', '~> 4.2.0'
 gem 'ice_cube', '~> 0.13.3'
 gem 'neat', '~> 1.7', '>= 1.7.2'
 gem 'pundit', '~> 1.1'

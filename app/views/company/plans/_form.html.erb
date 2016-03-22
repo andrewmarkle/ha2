@@ -13,19 +13,31 @@
 
   <div class="field">
     <%= f.label :name %>
+    <p class="muted">This is your client-facing name for the plan. It will appear in invoices and on the payment page.</p>
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :price_per_walk %>
-    <%= f.number_field :price_per_walk %>
-  </div>
+  <div class="inline-block">
+    <div class="field">
+      <%= f.label :price_per_walk %>
+      <p class="muted">Amount in dollars</p>
+      <%= f.number_field :price_per_walk %>
+    </div>
 
-  <div class="field">
-    <%= f.label :interval %>
-    <%= f.number_field :interval %>
-  </div>
+    <div class="field">
+      x
+    </div>
 
+    <div class="field">
+      <%= f.label :interval %>
+      <p class="muted">number of walks</p>
+      <%= f.number_field :interval %>
+    </div>
+
+    <div class="field">
+
+    </div>
+  </div>
   <div class="field">
     <%= f.label :monday %>
     <%= f.check_box :monday %>

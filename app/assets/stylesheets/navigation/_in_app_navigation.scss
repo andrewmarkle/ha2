@@ -1,0 +1,159 @@
+.in-app-navigation {
+  background-color: $navigation-background;
+  min-height: $navigation-height;
+  width: 100%;
+  z-index: 999;
+
+  .navigation-wrapper {
+    @include clearfix;
+    @include outer-container;
+    padding: 20px;
+    position: relative;
+    z-index: 9999;
+  }
+
+// Mobile hamburger button
+  .navigation-menu-button {
+    display: block;
+    float: right;
+    margin: 0;
+    color: #000;
+
+    @include media ($medium-screen, $large-screen) {
+      display: none;
+    }
+  }
+
+
+// Nav menu
+
+  .logo {
+    float: left;
+    color: #000;
+    padding-right: 6em;
+    line-height: 1.5em;
+    font-weight: bold;
+
+    img {
+      max-height: 2em;
+      padding-right: 1em;
+    }
+  }
+
+  nav {
+    float: left;
+    text-align: center;
+    line-height: 1.5em;
+
+    @include media ($mobile) {
+      width: 100%;
+    }
+  }
+
+  ul.navigation-menu {
+    clear: both;
+    display: none;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+
+    @include media ($medium-screen, $large-screen) {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    &.show {
+      display: block;
+    }
+  }
+
+
+// Nav items
+  ul li.nav-link {
+    display: inline;
+    text-align: right;
+    width: 100%;
+    font-style: uppercase;
+
+    @include media ($mobile) {
+      display: block;
+      text-decoration: none;
+      width: 100%;
+      padding-top: 20px;
+    }
+  }
+
+  li.nav-link a {
+    display: inline-block;
+    color: $navigation-color;
+
+    @include media ($large-screen) {
+      padding-right: 2em;
+    }
+  }
+
+  .hover-menu {
+  $large-screen: 50em !default;
+  $submenu-width: 12em;
+
+  overflow: visible;
+  padding-right: 0;
+
+  @include media($large-screen) {
+    position: relative;
+  }
+
+  .hover-menu-item {
+    left: 0;
+    position: relative;
+
+    &::after {
+      content: "›";
+      padding-left: 0.5em;
+    }
+  }
+
+  .submenu {
+    display: none;
+    margin: 0;
+    padding-left: 0;
+    background-color: $navigation-background;
+
+    @include media($large-screen) {
+      left: 0;
+      position: absolute;
+    }
+  }
+
+  .submenu li {
+    display: block;
+    padding-right: 0;
+  }
+
+  .submenu li a {
+    display: inline-block;
+    text-align: right;
+    width: 100%;
+    padding: 24px 0;
+
+    @include media($large-screen) {
+      text-align: left;
+      width: $submenu-width;
+    }
+  }
+
+  .submenu .submenu {
+    @include media($large-screen) {
+      left: $submenu-width;
+      top: 0;
+    }
+  }
+
+  &:focus > .submenu,
+  &:hover > .submenu {
+    display: block;
+  }
+}
+}

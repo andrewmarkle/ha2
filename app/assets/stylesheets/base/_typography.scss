@@ -19,6 +19,11 @@ h6 {
 
 p {
   margin: 0 0 $small-spacing;
+  &.muted {
+    color: $muted-gray;
+    font-size: 0.8em;
+    text-align: left;
+  }
 }
 
 a {

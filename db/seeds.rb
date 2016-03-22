@@ -30,4 +30,16 @@ Plan.create!([
     price_per_walk: 1900,
     total_price: 19000
   }
+  {
+    company: Company.last,
+    name: "3 days a week",
+    interval: 6,
+    monday: true,
+    tuesday: false,
+    wednesday: true,
+    thursday: false,
+    friday: true,
+    price_per_walk: 2000,
+    total_price: 12000
+  }
 ])

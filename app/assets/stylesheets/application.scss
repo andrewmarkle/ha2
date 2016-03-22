@@ -17,11 +17,15 @@
 @import "base/base";
 @import "neat";
 @import "normalize";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "shared";
-@import "navigation";
+@import "navigation/in_app_navigation";
+@import "navigation/landing_page_navigation";
 @import "flash";
 @import "landing_page";
 @import "authentication";
+@import "plans";
 
 body {
   background: $subtle-gray;

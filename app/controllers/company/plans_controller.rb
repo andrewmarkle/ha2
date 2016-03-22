@@ -22,7 +22,6 @@
 
 class Company::PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
-  # after_action :verify_policy_scoped
 
   # GET /plans
   # GET /plans.json

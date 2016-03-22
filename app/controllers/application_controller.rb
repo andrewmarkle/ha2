@@ -2,8 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   include Pundit
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   after_action :verify_authorized, unless: :devise_controller?
+  after_action :verify_policy_scoped, unless: :devise_controller?
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def after_sign_in_path_for(resource)
     if current_user.company.nil?

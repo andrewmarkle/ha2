@@ -1,0 +1,69 @@
+
+// Landing Page Nav
+
+header.landing-page-navigation {
+
+  background-color: $navigation-background;
+  min-height: $navigation-height;
+  width: 100%;
+  z-index: 999;
+
+  .navigation-wrapper {
+    @include clearfix;
+    @include outer-container;
+    padding: 0 40px;
+    position: relative;
+    z-index: 9999;
+  }
+
+// Nav menu
+
+  nav {
+    float: none;
+    min-height: $navigation-height;
+    z-index: 9999999;
+  }
+
+  ul.navigation-menu {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+
+
+// The nav items
+
+  ul li.nav-link {
+    background: $navigation-background;
+    display: inline;
+    line-height: $navigation-height;
+    overflow: hidden;
+    text-align: left;
+    font-weight: 400;
+
+    a {
+      color: $navigation-color;
+      display: inline;
+      text-decoration: none;
+      font-weight: 400;
+
+      &:focus,
+      &:hover {
+        color: $navigation-color-hover;
+      }
+    }
+  }
+
+  ul li.nav-link.right {
+    float: right;
+  }
+
+  .active-nav-item a {
+    border-bottom: 1px solid $navigation-active-link-color;
+    padding-bottom: 3px;
+  }
+}

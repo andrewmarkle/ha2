@@ -1,15 +1,12 @@
 <header class="in-app-navigation" role="banner">
   <div class="navigation-wrapper">
-    <%= link_to dashboard_path, class: "logo" do %>
-      <img src="https://raw.githubusercontent.com/thoughtbot/empties/master/source/images/placeholder.png" alt="Logo Image">
-    <% end %>
-    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">Menu</a>
+    <%= link_to "HOUND", dashboard_path, class: "logo" %>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu"><%= icon('bars') %></a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
         <li class="nav-link"><%= link_to "PLANS", plans_path %></li>
         <li class="nav-link"><a href="javascript:void(0)">CLIENTS</a></li>
         <li class="nav-link"><a href="javascript:void(0)">SCHEDULE</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">SETTINGS</a></li>
         <li class="nav-link hover-menu">
         <a href="javascript:void(0)">SETTINGS</a>
         <ul class="submenu">

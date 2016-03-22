@@ -1,5 +1,6 @@
 class CompanyController < ApplicationController
   layout Proc.new { |controller| controller.current_user.company.present? ? "application" : "no_nav" }
+  skip_after_action :verify_policy_scoped, only: [:new, :create]
 
   def new
     @company = Company.new
