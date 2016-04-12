@@ -20,8 +20,8 @@
   <div class="inline-block">
     <div class="field">
       <%= f.label :price_per_walk %>
-      <p class="muted">Amount in dollars</p>
-      <%= f.number_field :price_per_walk %>
+      <p class="muted">Price in dollars</p>
+      <%= f.text_field :amount, data: {role: 'money', autonumeric: {aSign: '$'}} %>
     </div>
 
     <div class="field">
@@ -30,7 +30,7 @@
 
     <div class="field">
       <%= f.label :interval %>
-      <p class="muted">number of walks</p>
+      <p class="muted">Number of walks</p>
       <%= f.number_field :interval %>
     </div>
 

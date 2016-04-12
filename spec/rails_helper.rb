@@ -64,4 +64,5 @@ RSpec.configure do |config|
     DatabaseRewinder.clean
   end
 
+  config.include FactoryGirl::Syntax::Methods
 end

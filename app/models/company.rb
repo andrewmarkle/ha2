@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: companies
@@ -19,5 +20,5 @@ class Company < ApplicationRecord
   has_many :plans
 
   validates :name, presence: true, length: { maximum: 100 }
-  validates_format_of :url, :with => URI::regexp(%w(http https)), allow_blank: true
+  validates_format_of :url, with: URI::regexp(%w(http https)), allow_blank: true
 end

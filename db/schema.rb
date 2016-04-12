@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160225010030) do
   create_table "plans", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid     "company_id"
     t.string   "name"
-    t.integer  "interval"
+    t.integer  "interval",       default: 0,     null: false
     t.boolean  "monday",         default: false, null: false
     t.boolean  "tuesday",        default: false, null: false
     t.boolean  "wednesday",      default: false, null: false
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20160225010030) do
     t.boolean  "taxable",        default: false, null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.integer  "total_price"
-    t.integer  "price_per_walk"
+    t.integer  "total_price",    default: 0,     null: false
+    t.integer  "price_per_walk", default: 0,     null: false
   end
 
   add_index "plans", ["company_id"], name: "index_plans_on_company_id", using: :btree

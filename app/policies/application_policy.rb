@@ -47,7 +47,7 @@ class ApplicationPolicy
     end
 
     def resolve
-      scope.where(company_id: user.company_id)
+      @_scope ||= scope.joins(:company).where(company_id: user.company_id)
     end
   end
 end

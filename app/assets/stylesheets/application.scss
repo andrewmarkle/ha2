@@ -30,6 +30,7 @@
 body {
   background: $subtle-gray;
   color: $off-black;
+  -webkit-font-smoothing: antialiased;
 }
 
 section {

@@ -3,7 +3,7 @@ class CreatePlans < ActiveRecord::Migration[5.0]
     create_table :plans, id: :uuid do |t|
       t.references :company, index: true, type: :uuid
       t.string :name
-      t.integer :interval
+      t.integer :interval, null: false, default: 0
       t.integer :price
       t.boolean :monday, null: false, default: false
       t.boolean :tuesday, null: false, default: false

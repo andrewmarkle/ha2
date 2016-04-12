@@ -18,7 +18,7 @@
 <p>
   <strong>Days:</strong>
   <ul>
-  <% @plan.days_of_the_week.map do |days| %>
+  <% @plan.selected_days_of_the_week.map do |days| %>
     <li><%= days.to_s.capitalize %></li>
   <% end %>
   </ul>

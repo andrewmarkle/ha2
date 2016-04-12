@@ -16,7 +16,7 @@ feature "a User's Plan" do
     expect(current_path).to eq(new_plan_path)
 
     fill_in 'Name', with: 'New Plan'
-    fill_in 'Price per walk', with: 2500
+    fill_in 'plan_amount', with: "25.00"
     fill_in 'Interval', with: 4
     check "Monday"
     check "Tuesday"
@@ -29,6 +29,14 @@ feature "a User's Plan" do
     expect(page).to have_text('$100.00')
     expect(page).not_to have_text('Wednesday')
     expect(page).to have_text('Plan successfully created!')
+  end
+
+  scenario 'is shown' do
+    visit plan_path(plans(:plan_b))
+    expect(page).to have_text('Company B')
+    expect(page).to have_text('$200.00')
+    expect(page).to have_text('Monday')
+    expect(page).to have_text('Tuesday')
   end
 
   scenario 'is updated' do

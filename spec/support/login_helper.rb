@@ -12,4 +12,3 @@ def sign_up_with(email, password)
   fill_in 'user_password_confirmation', with: password
   click_button 'Sign up'
 end
-
