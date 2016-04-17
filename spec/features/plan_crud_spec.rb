@@ -15,9 +15,10 @@ feature "a User's Plan" do
 
     expect(current_path).to eq(new_plan_path)
 
-    fill_in 'Name', with: 'New Plan'
-    fill_in 'plan_amount', with: "25.00"
+    fill_in 'plan_name', with: 'New Plan'
+    fill_in 'plan_amount', with: '25.00'
     fill_in 'Interval', with: 4
+
     check "Monday"
     check "Tuesday"
 

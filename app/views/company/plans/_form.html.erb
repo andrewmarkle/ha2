@@ -11,71 +11,99 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <p class="muted">This is your client-facing name for the plan. It will appear in invoices and on the payment page.</p>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="inline-block">
+  <div class="row">
     <div class="field">
+      <%= f.label :name %>
+      <p class="muted">This is your client-facing name for the plan. It will appear in invoices and on the payment page.</p>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="row days-of-the-week">
+      <%= f.label :days_of_the_week %>
+      <p class="muted">Chose which days of the week this plan will follow. (You can leave this blank if you want a pay-as-you-go plan).
+
+      <div class="field">
+        <div class="day">
+          <%= f.label :monday %>
+          <label class="switch">
+            <%= f.check_box :monday %>
+            <div class="checkbox"></div>
+          </label>
+        </div>
+        <div class="day">
+          <%= f.label :tuesday %>
+          <label class="switch">
+            <%= f.check_box :tuesday %>
+            <div class="checkbox"></div>
+          </label>
+        </div>
+
+        <div class="day">
+          <%= f.label :wednesday %>
+         <label class="switch">
+            <%= f.check_box :wednesday %>
+            <div class="checkbox"></div>
+          </label>
+        </div>
+
+        <div class="day">
+          <%= f.label :thursday %>
+           <label class="switch">
+            <%= f.check_box :thursday %>
+            <div class="checkbox"></div>
+          </label>
+        </div>
+
+        <div class="day">
+          <%= f.label :friday %>
+           <label class="switch">
+            <%= f.check_box :friday %>
+            <div class="checkbox"></div>
+          </label>
+        </div>
+
+        <div class="day">
+          <%= f.label :saturday %>
+          <label class="switch">
+            <%= f.check_box :saturday %>
+            <div class="checkbox"></div>
+          </label>
+        </div>
+
+        <div class="day">
+          <%= f.label :sunday %>
+          <label class="switch">
+            <%= f.check_box :sunday %>
+            <div class="checkbox"></div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field price_per_walk">
       <%= f.label :price_per_walk %>
       <p class="muted">Price in dollars</p>
       <%= f.text_field :amount, data: {role: 'money', autonumeric: {aSign: '$'}} %>
     </div>
 
-    <div class="field">
-      x
+    <div class="field times">
+      <p>x</p>
     </div>
 
-    <div class="field">
+    <div class="field interval">
       <%= f.label :interval %>
       <p class="muted">Number of walks</p>
       <%= f.number_field :interval %>
     </div>
-
-    <div class="field">
-
-    </div>
-  </div>
-  <div class="field">
-    <%= f.label :monday %>
-    <%= f.check_box :monday %>
   </div>
 
   <div class="field">
-    <%= f.label :tuesday %>
-    <%= f.check_box :tuesday %>
-  </div>
-
-  <div class="field">
-    <%= f.label :wednesday %>
-    <%= f.check_box :wednesday %>
-  </div>
-
-  <div class="field">
-    <%= f.label :thursday %>
-    <%= f.check_box :thursday %>
-  </div>
-
-  <div class="field">
-    <%= f.label :friday %>
-    <%= f.check_box :friday %>
-  </div>
-
-  <div class="field">
-    <%= f.label :saturday %>
-    <%= f.check_box :saturday %>
-  </div>
-
-  <div class="field">
-    <%= f.label :sunday %>
-    <%= f.check_box :sunday %>
-  </div>
-
-  <div class="field">
-    <%= f.label :taxable %>
+    <%= f.label :add_tax? %>
     <%= f.check_box :taxable %>
+  </div>
+
+  <div class="row grand-total">
+    <p class="total">Total cost of plan: </p><p data-autonumeric="{"aSign":"$"}", id="grand-total">$0</p>
   </div>
 
   <div class="actions">

@@ -99,7 +99,7 @@
   $submenu-width: 12em;
 
   overflow: visible;
-  padding-right: 0;
+  padding: 0em;
 
   @include media($large-screen) {
     position: relative;
@@ -114,46 +114,137 @@
       padding-left: 0.5em;
     }
   }
+  }}
 
-  .submenu {
-    display: none;
-    margin: 0;
-    padding-left: 0;
-    background-color: $navigation-background;
 
-    @include media($large-screen) {
-      left: 0;
-      position: absolute;
-    }
-  }
+// Sub menus
 
-  .submenu li {
-    display: block;
+  li.more.nav-link {
     padding-right: 0;
-  }
 
-  .submenu li a {
-    display: inline-block;
-    text-align: right;
-    width: 100%;
-    padding: 24px 0;
+    @include media($horizontal-bar-mode) {
+      padding-right: $navigation-submenu-padding;
+    }
 
-    @include media($large-screen) {
-      text-align: left;
-      width: $submenu-width;
+    > ul > li:first-child a  {
+      padding-top: 1em;
+    }
+
+    a {
+      margin-right: $navigation-submenu-padding;
+    }
+
+    > a {
+      padding-right: 0.6em;
+    }
+
+    > a::after {
+      @include position(absolute, auto -0.4em auto auto);
+      color: $navigation-color;
+      content: "\25BE";
     }
   }
 
-  .submenu .submenu {
-    @include media($large-screen) {
-      left: $submenu-width;
-      top: 0;
+  li.more {
+    overflow: visible;
+    padding-right: 0;
+
+    a {
+      padding-right: 0.8em;
+    }
+
+    > a {
+      padding-right: 1.6em;
+      position: relative;
+
+      @include media($horizontal-bar-mode) {
+        margin-right: $navigation-submenu-padding;
+      }
+
+      &::after {
+        content: "›";
+        font-size: 1.2em;
+        position: absolute;
+        right: $navigation-submenu-padding / 2;
+      }
+    }
+
+    &:focus > .submenu,
+    &:hover > .submenu {
+      display: block;
+    }
+
+    @include media($horizontal-bar-mode) {
+      padding-right: 0.8em;
+      position: relative;
     }
   }
 
-  &:focus > .submenu,
-  &:hover > .submenu {
-    display: block;
+  ul.submenu {
+    display: none;
+    padding-left: 0;
+
+    @include media($horizontal-bar-mode) {
+      left: -$navigation-submenu-padding;
+      position: absolute;
+      top: 1.5em;
+    }
+
+    .submenu.fly-out-right {
+      @include media($horizontal-bar-mode) {
+        left: $navigation-submenu-width - 0.2em;
+        top: 0;
+      }
+    }
+
+    .submenu.fly-out-left {
+      @include media($horizontal-bar-mode) {
+        left: -$navigation-submenu-width + 0.2em;
+        top: 0;
+      }
+    }
+
+    .submenu {
+      @include media($horizontal-bar-mode) {
+        left: $navigation-submenu-width - 0.2em;
+        top: 0;
+      }
+    }
+
+    li {
+      display: block;
+      padding-right: 0;
+
+      @include media($horizontal-bar-mode) {
+        line-height: $navigation-height / 1.3;
+
+        &:first-child > a {
+          border-top-left-radius: $base-border-radius;
+          border-top-right-radius: $base-border-radius;
+        }
+
+        &:last-child > a {
+          border-bottom-left-radius: $base-border-radius;
+          border-bottom-right-radius: $base-border-radius;
+          padding-bottom: 0.7em;
+        }
+      }
+
+      a {
+        background-color: darken($navigation-background, 3%);
+        display: inline-block;
+        text-align: right;
+        width: 100%;
+
+        @include media($horizontal-bar-mode) {
+          background-color: $navigation-background;
+          padding-left: $navigation-submenu-padding;
+          text-align: left;
+          width: $navigation-submenu-width;
+        }
+      }
+    }
   }
-}
-}
+
+
+
