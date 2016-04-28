@@ -29,6 +29,7 @@ feature 'user signs in' do
   end
 
 private
+
   def user_should_be_signed_in
     expect(page).to have_text 'Signed in'
     expect(current_path).to eq(dashboard_path)

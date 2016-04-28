@@ -83,7 +83,7 @@
     <div class="field price_per_walk">
       <%= f.label :price_per_walk %>
       <p class="muted">Price in dollars</p>
-      <%= f.text_field :amount, data: {role: 'money', autonumeric: {aSign: '$'}} %>
+      <%= f.text_field :amount, data: {role: 'money', autonumeric: {aSign: '$'}}, placeholder: "$0" %>
     </div>
 
     <div class="field times">
@@ -103,7 +103,7 @@
   </div>
 
   <div class="row grand-total">
-    <p class="total">Total cost of plan: </p><p data-autonumeric="{"aSign":"$"}", id="grand-total">$0</p>
+    <p class="total">Total cost of plan: </p><p data-role="money", data-autonumeric="{ "aSign":"$" }", id="grand-total">$0</p>
   </div>
 
   <div class="actions">

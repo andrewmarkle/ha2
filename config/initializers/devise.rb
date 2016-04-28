@@ -269,7 +269,7 @@ end
 
 Rails.application.config.to_prepare do
   Devise::SessionsController.layout "landing_page"
-  Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "landing_page" }
+  Devise::RegistrationsController.layout proc { user_signed_in? ? "application" : "landing_page" }
   Devise::ConfirmationsController.layout "landing_page"
   Devise::UnlocksController.layout "landing_page"
   Devise::PasswordsController.layout "landing_page"

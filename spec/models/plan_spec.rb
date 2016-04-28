@@ -72,7 +72,7 @@ RSpec.describe Plan, type: :model do
     end
   end
 
-  context 'money is saved as an integer with cents' do
+  describe 'money is saved as an integer with cents' do
     it 'tests value as integer' do
       plan = Plan.new(amount: 19)
       expect(plan.price_per_walk).to eq(1900)
@@ -98,9 +98,10 @@ RSpec.describe Plan, type: :model do
       expect(plan.price_per_walk).to eq(1999)
     end
 
-    it 'saves price_per_walk to database' do
-      plan = Plan.new(amount: 19.99)
-      plan.save
+    it 'saves total_price to database' do
+      company = create(:company)
+      plan = create(:plan, amount: 19.99, interval: 2, company: company)
+      expect(plan.total_price).to eq(3998)
     end
   end
 end
