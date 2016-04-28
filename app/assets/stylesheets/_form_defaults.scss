@@ -1,0 +1,64 @@
+$form-error-color: #e23c3f !default;
+#error_explanation {
+  background-color: $form-error-color;
+  padding: 1em;
+  border: solid #fff 4px;
+  color: #fff;
+  @include border-top-radius(10px);
+  @include border-bottom-radius(10px);
+  ul li {
+    text-align: center;
+  }
+
+}
+
+div.field_with_errors {
+  input {
+  border-color: $form-error-color;
+  }
+}
+
+// Basic centered form
+
+.form {
+  @include span-columns(10);
+  @include shift(1);
+  margin-top: 30px;
+
+  h1,
+  h2 { text-align: center;}
+
+  @include media($mobile) {
+    @include span-columns(6);
+    @include shift(0);
+    margin-top: 30px;
+  }
+
+  section.form {
+    background: #fff;
+    padding: 26px 40px 40px 40px;
+    border-radius: 6px;
+
+    form {
+      div.field {
+        padding-top: 14px;
+      }
+      input {
+        margin-top: 6px;
+      }
+    }
+
+    label {
+      display: inline;
+      color: #000;
+      font-weight: normal;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+
+    p {
+      text-align: left;
+    }
+  }
+}

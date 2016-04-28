@@ -35,7 +35,9 @@
 }
 
 a.button-white {
-  border: 2px solid darken($subtle-gray, 5%);
+  backgound-color: red;
+  border: 0;
+  color: #fff;
   border-radius: $base-border-radius;
   cursor: pointer;
   display: inline-block;

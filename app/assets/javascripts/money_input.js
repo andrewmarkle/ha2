@@ -5,7 +5,7 @@ document.addEventListener("turbolinks:load", function() {
 
 function refresh_grand_total() {
   var interval = document.getElementById("plan_interval").value;
-  var amount = document.getElementById("plan_amount_val").value;
+  var amount = document.getElementById("plan_virtual_dollars_val").value;
   var total_plan_price = document.getElementById("grand-total");
   var total = "$" + interval * amount;
   total_plan_price.innerHTML = total;

@@ -104,6 +104,6 @@ class Company::PlansController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def plan_params
-    params.require(:plan).permit(:company_id, :name, :interval, :price_per_walk, :amount, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :taxable)
+    params.require(:plan).permit(:company_id, :name, :interval, :price_per_walk, :virtual_dollars, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :taxable)
   end
 end

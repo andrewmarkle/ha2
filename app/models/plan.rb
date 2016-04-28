@@ -30,10 +30,14 @@ class Plan < ApplicationRecord
 
   delegate :name, to: :company, prefix: true
 
-  attr_accessor :amount
+  def virtual_dollars=(amount)
+    @virtual_dollars = update(price_per_walk: amount.to_money.cents)
+  end
 
-  def amount=(value)
-    @amount = update(price_per_walk: value.to_money.cents)
+  def virtual_dollars
+    if price_per_walk
+      Money.new price_per_walk
+    end
   end
 
   def calculate_total_price

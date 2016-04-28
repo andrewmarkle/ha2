@@ -74,33 +74,33 @@ RSpec.describe Plan, type: :model do
 
   describe 'money is saved as an integer with cents' do
     it 'tests value as integer' do
-      plan = Plan.new(amount: 19)
+      plan = Plan.new(virtual_dollars: 19)
       expect(plan.price_per_walk).to eq(1900)
     end
 
     it 'tests value as a fraction' do
-      plan = Plan.new(amount: 19.99)
+      plan = Plan.new(virtual_dollars: 19.99)
       expect(plan.price_per_walk).to eq(1999)
     end
 
     it 'tests value as a string' do
-      plan = Plan.new(amount: '19')
+      plan = Plan.new(virtual_dollars: '19')
       expect(plan.price_per_walk).to eq(1900)
     end
 
     it 'tests value as a string with a dollar sign' do
-      plan = Plan.new(amount: '$19.99')
+      plan = Plan.new(virtual_dollars: '$19.99')
       expect(plan.price_per_walk).to eq(1999)
     end
 
     it 'tests value as a string with decimal' do
-      plan = Plan.new(amount: '19.99')
+      plan = Plan.new(virtual_dollars: '19.99')
       expect(plan.price_per_walk).to eq(1999)
     end
 
     it 'saves total_price to database' do
       company = create(:company)
-      plan = create(:plan, amount: 19.99, interval: 2, company: company)
+      plan = create(:plan, virtual_dollars: 19.99, interval: 2, company: company)
       expect(plan.total_price).to eq(3998)
     end
   end

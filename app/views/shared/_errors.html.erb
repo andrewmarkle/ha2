@@ -1,9 +1,9 @@
 <% if object.errors.any? %>
-  <div class="alert alert-danger">
-      <h3>Oops!</h3>
-      <ul>
+  <div id="error_explanation">
+    <h2><%= pluralize(object.errors.count, "error") %> prohibited this <%= object.class.to_s %> from being saved:</h2>
+    <ul>
     <% object.errors.full_messages.each do |message| %>
-      <li>Your <%= message.downcase %>.</li>
+      <li><%= message %></li>
     <% end %>
     </ul>
   </div>

@@ -1,15 +1,5 @@
 <%= form_for(plan) do |f| %>
-  <% if plan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
-
-      <ul>
-      <% plan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/errors', object: plan %>
 
   <div class="row">
     <div class="field">
@@ -83,7 +73,7 @@
     <div class="field price_per_walk">
       <%= f.label :price_per_walk %>
       <p class="muted">Price in dollars</p>
-      <%= f.text_field :amount, data: {role: 'money', autonumeric: {aSign: '$'}}, placeholder: "$0" %>
+      <%= f.text_field :virtual_dollars, data: {role: 'money', autonumeric: {aSign: '$', wEmpty: 'zero'}}, placeholder: "$0" %>
     </div>
 
     <div class="field times">
