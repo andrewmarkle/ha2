@@ -1,5 +1,5 @@
-require "rails_helper"
-require "support/login_helper"
+require 'rails_helper'
+require 'support/login_helper'
 
 feature "a User's Plan" do
   fixtures :all
@@ -9,9 +9,9 @@ feature "a User's Plan" do
   end
 
   scenario 'is created' do
-    click_link "PLANS"
+    click_link 'PLANS'
     expect(current_path).to eq(plans_path)
-    click_link "Add New Plan"
+    click_link 'Add New Plan'
 
     expect(current_path).to eq(new_plan_path)
 
@@ -19,8 +19,8 @@ feature "a User's Plan" do
     fill_in 'plan_virtual_dollars', with: '25.00'
     fill_in 'Interval', with: 4
 
-    check "Monday"
-    check "Tuesday"
+    check 'Monday'
+    check 'Tuesday'
 
     click_button 'Create Plan'
 

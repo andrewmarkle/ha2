@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user do
-    scope module: "company" do
+    scope module: 'company' do
       resources :plans
       root to: 'dashboard#index', as: 'dashboard'
     end

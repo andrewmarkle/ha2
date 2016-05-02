@@ -2,10 +2,20 @@
 
 AllCops:
   TargetRubyVersion: 2.3
+  DisplayCopNames: true
 
-Style/Alias:
-  Enabled: false
-  StyleGuide: http://relaxed.ruby.style/#stylealias
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'spec/spec_helper.rb'
+    - 'config/puma.rb'
+    - 'config/initializers/devise.rb'
+    - 'config/initializers/money.rb'
+
+
+# Style/Alias:
+#   Enabled: false
+#   StyleGuide: http://relaxed.ruby.style/#stylealias
 
 Style/BeginBlock:
   Enabled: false
@@ -19,9 +29,9 @@ Style/Documentation:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#styledocumentation
 
-Style/DotPosition:
-  Enabled: false
-  StyleGuide: http://relaxed.ruby.style/#styledotposition
+# Style/DotPosition:
+#   Enabled: false
+#   StyleGuide: http://relaxed.ruby.style/#styledotposition
 
 Style/DoubleNegation:
   Enabled: false
@@ -31,9 +41,9 @@ Style/EndBlock:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#styleendblock
 
-Style/FormatString:
-  Enabled: false
-  StyleGuide: http://relaxed.ruby.style/#styleformatstring
+# Style/FormatString:
+#   Enabled: false
+#   StyleGuide: http://relaxed.ruby.style/#styleformatstring
 
 Style/IfUnlessModifier:
   Enabled: false
@@ -63,6 +73,7 @@ Style/ParallelAssignment:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#styleparallelassignment
 
+
 Style/PercentLiteralDelimiters:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#stylepercentliteraldelimiters
@@ -87,6 +98,7 @@ Style/SingleLineMethods:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#stylesinglelinemethods
 
+
 Style/SpaceBeforeBlockBraces:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#stylespacebeforeblockbraces
@@ -99,8 +111,11 @@ Style/SpecialGlobalVars:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#stylespecialglobalvars
 
+Style/StringLiteralsInInterpolation:
+    EnforcedStyle: single_quotes
+
 Style/StringLiterals:
-  Enabled: false
+  Enabled: true
   StyleGuide: http://relaxed.ruby.style/#stylestringliterals
 
 Style/TrailingCommaInLiteral:
@@ -125,8 +140,8 @@ Metrics/AbcSize:
 Metrics/BlockNesting:
   Enabled: false
 
-Metrics/ClassLength:
-  Enabled: false
+# Metrics/ClassLength:
+#   Enabled: false
 
 Metrics/ModuleLength:
   Enabled: false

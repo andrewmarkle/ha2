@@ -35,9 +35,7 @@ class Plan < ApplicationRecord
   end
 
   def virtual_dollars
-    if price_per_walk
-      Money.new price_per_walk
-    end
+    return Money.new price_per_walk if price_per_walk
   end
 
   def calculate_total_price

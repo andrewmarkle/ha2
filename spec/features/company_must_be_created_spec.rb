@@ -1,11 +1,11 @@
 require 'rails_helper'
-require "support/login_helper"
+require 'support/login_helper'
 
 feature 'User is forced to create a company' do
   fixtures :users
 
   background do
-    sign_in_with users(:new_user).email, "password"
+    sign_in_with users(:new_user).email, 'password'
   end
 
   scenario 'redirects and forces you to create company' do

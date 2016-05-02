@@ -27,19 +27,19 @@ RSpec.describe Company, type: :model do
   end
 
   it "makes sure the url won't work withouht the http" do
-    company = Company.new(url: "www.walkitoff.ca")
+    company = Company.new(url: 'www.walkitoff.ca')
     expect(company.valid?).to be_falsey
     expect(company.errors[:url].any?).to be_truthy
   end
 
-  it "makes it so the user must type in http" do
-    company = Company.new(url: "http://www.walkitoff.ca")
+  it 'makes it so the user must type in http' do
+    company = Company.new(url: 'http://www.walkitoff.ca')
     expect(company.valid?).to be_falsey
     expect(company.errors[:url].any?).to be_falsey
   end
 
-  it "allows the url to be blank" do
-    company = Company.new(url: "")
+  it 'allows the url to be blank' do
+    company = Company.new(url: '')
     expect(company.errors[:url].any?).to be_falsey
   end
 end

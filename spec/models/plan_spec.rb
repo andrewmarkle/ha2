@@ -52,10 +52,10 @@ RSpec.describe Plan, type: :model do
   end
 
   describe "calculates a plan's total price" do
-    it "calculates the total_price based on the interval and price_per_walk" do
+    it 'calculates the total_price based on the interval and price_per_walk' do
       plan = Plan.new(interval: 10, price_per_walk: 2500)
       plan.calculate_total_price
-      expect(plan.total_price).to eq(25000)
+      expect(plan.total_price).to eq(25_000)
     end
 
     it 'saves the total_price when the plan is saved' do

@@ -1,5 +1,5 @@
-require "rails_helper"
-require "support/login_helper"
+require 'rails_helper'
+require 'support/login_helper'
 
 feature 'user signs out' do
   fixtures :all
