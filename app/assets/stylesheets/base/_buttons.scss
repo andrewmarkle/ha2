@@ -35,9 +35,7 @@
 }
 
 a.button-white {
-  backgound-color: red;
-  border: 0;
-  color: #fff;
+  border: 2px solid darken($subtle-gray, 5%);
   border-radius: $base-border-radius;
   cursor: pointer;
   display: inline-block;
@@ -66,3 +64,41 @@ a.button-white {
     }
   }
 }
+
+a.gray-button {
+  appearance: none;
+  background-color: $light-gray;
+  border: 0;
+  border-radius: $base-border-radius;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  line-height: 1;
+  margin-top: 6px;
+  padding: $small-spacing $base-spacing;
+  text-decoration: none;
+  transition: background-color $base-duration $base-timing;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: shade($light-gray, 20%);
+    color: #fff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}
+

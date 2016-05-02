@@ -22,7 +22,7 @@ feature "a User's Plan" do
     check "Monday"
     check "Tuesday"
 
-    click_button 'Create plan'
+    click_button 'Create Plan'
 
     expect(page).to have_text('New Plan')
     expect(page).to have_text('Monday')
@@ -44,7 +44,7 @@ feature "a User's Plan" do
     visit plan_path(plans(:plan_b))
     click_link 'Edit'
     fill_in 'Name', with: 'Updated plan name'
-    click_button 'Update plan'
+    click_button 'Update Plan'
 
     expect(current_path).to eq(plan_path(plans(:plan_b)))
 

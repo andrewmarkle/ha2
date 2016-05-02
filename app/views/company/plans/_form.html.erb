@@ -93,10 +93,12 @@
   </div>
 
   <div class="row grand-total">
-    <p class="total">Total cost of plan: </p><p data-role="money", data-autonumeric="{ "aSign":"$" }", id="grand-total">$0</p>
+    <p class="total">Total cost of plan: </p><p data-role="money", id="grand-total">$0</p>
+
   </div>
 
   <div class="actions">
     <%= f.submit %>
+    <%= link_to 'Cancel', plans_path, class: 'gray-button' %>
   </div>
 <% end %>

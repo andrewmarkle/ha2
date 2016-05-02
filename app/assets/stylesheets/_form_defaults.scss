@@ -1,3 +1,5 @@
+// Form error messages
+
 $form-error-color: #e23c3f !default;
 #error_explanation {
   background-color: $form-error-color;
@@ -18,7 +20,7 @@ div.field_with_errors {
   }
 }
 
-// Basic centered form
+// Your basic centered form base
 
 .form {
   @include span-columns(10);
@@ -53,12 +55,11 @@ div.field_with_errors {
       color: #000;
       font-weight: normal;
     }
-    .actions {
-      margin-top: 20px;
-    }
-
     p {
       text-align: left;
+    }
+    .gray-button {
+      margin-left: 10px;
     }
   }
 }
