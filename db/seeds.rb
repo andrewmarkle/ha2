@@ -5,7 +5,7 @@
 Company.create!(
   [
     {  name: 'Dog Walking Inc.',
-       url: 'http://dogwalkinginc.ca',
+       url: 'http://dogwalkinginc.ca'
     }
   ]
 )
