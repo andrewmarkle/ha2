@@ -13,7 +13,7 @@ feature 'User is forced to create a company' do
     expect(current_path).to eq(new_company_path)
   end
 
-  scenario 'succeeds when the user fills out the form' do
+  scenario 'succeeds when the user fills out their company information' do
     expect(page).to have_css 'h1', text: 'Welcome!'
     fill_in 'Company Name', with: 'Walk it off'
     fill_in 'Company Website', with: 'http://walkitoff.ca'
