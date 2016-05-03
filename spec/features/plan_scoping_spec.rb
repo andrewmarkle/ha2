@@ -21,7 +21,7 @@ feature 'Plan scoping' do
   end
 
   context 'show' do
-    context "when signed in as User A's company" do
+    context 'when signed in as User A' do
       before do
         sign_in_with 'user_a@example.com', 'password'
       end
