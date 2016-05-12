@@ -44,11 +44,13 @@ feature "a User's Plan" do
     visit plan_path(plans(:plan_b))
     click_link 'Edit'
     fill_in 'Name', with: 'Updated plan name'
+    fill_in 'plan_virtual_dollars', with: '5.00'
     click_button 'Update Plan'
 
     expect(current_path).to eq(plan_path(plans(:plan_b)))
 
     expect(page).to have_text('Updated plan name')
+    expect(page).to have_text('$50.00')
     expect(page).to have_text('Plan successfully updated!')
   end
 

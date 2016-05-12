@@ -57,12 +57,6 @@ RSpec.describe Plan, type: :model do
       plan.calculate_total_price
       expect(plan.total_price).to eq(25_000)
     end
-
-    it 'saves the total_price when the plan is saved' do
-      company = create(:company)
-      plan = create(:plan, price_per_walk: 1000, interval: 2, company: company)
-      expect(plan.total_price).to eq(2000)
-    end
   end
 
   describe 'which days of the week are scheduled' do
@@ -98,9 +92,12 @@ RSpec.describe Plan, type: :model do
       expect(plan.price_per_walk).to eq(1999)
     end
 
-    it 'saves total_price to database' do
+    it 'saves converts the virtual dollar attribute to integers in the database' do
       company = create(:company)
       plan = create(:plan, virtual_dollars: 19.99, interval: 2, company: company)
+      plan.calculate_total_price
+
+      expect(plan.price_per_walk).to eq(1999)
       expect(plan.total_price).to eq(3998)
     end
   end

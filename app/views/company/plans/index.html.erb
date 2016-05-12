@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_company.tax.present? %>
+  <%= link_to "Taxes", taxes_path %>
+<% else %>
+  <%= link_to "Taxes", new_tax_path %>
+<% end %>
+
 <h1>Plans</h1>
 
 <table>

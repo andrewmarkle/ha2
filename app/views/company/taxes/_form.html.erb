@@ -1,0 +1,27 @@
+<%= form_for(company_tax) do |f| %>
+  <% if company_tax.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company_tax.errors.count, "error") %> prohibited this company_tax from being saved:</h2>
+
+      <ul>
+      <% company_tax.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rate %>
+    <%= f.number_field :rate %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

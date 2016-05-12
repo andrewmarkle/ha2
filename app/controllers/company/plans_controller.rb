@@ -22,7 +22,6 @@
 
 class Company::PlansController < ApplicationController
   before_action :find_plan, only: [:show, :edit, :update, :destroy]
-  skip_after_action :verify_policy_scoped
 
   def index
     @plans = policy_scope(Plan)
@@ -49,6 +48,7 @@ class Company::PlansController < ApplicationController
 
     respond_to do |format|
       if @plan.save
+        @plan.calculate_total_price
         format.html { redirect_to @plan, notice: 'Plan successfully created!' }
         format.json { render :show, status: :created, location: @plan }
       else
@@ -63,6 +63,7 @@ class Company::PlansController < ApplicationController
     @plan = find_plan
     respond_to do |format|
       if @plan.update(plan_params)
+        @plan.calculate_total_price
         format.html { redirect_to @plan, notice: 'Plan successfully updated!' }
         format.json { render :show, status: :ok, location: @plan }
       else

@@ -33,11 +33,11 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '~> 3.0'
+  gem 'web-console'
 end
 
 group :development, :test do
-  gem 'byebug'
+  gem 'byebug', platform: :mri
   gem 'capybara', '~> 2.6', '>= 2.6.2'
   gem 'database_rewinder', '~> 0.5.3'
   gem 'rspec-rails', '3.5.0.beta3'

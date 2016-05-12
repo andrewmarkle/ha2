@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   authenticated :user do
     scope module: 'company' do
       resources :plans
+      resources :taxes, only: [:new, :create, :edit, :update, :show]
       root to: 'dashboard#index', as: 'dashboard'
     end
     resource :company, only: [:new, :create], controller: 'company'

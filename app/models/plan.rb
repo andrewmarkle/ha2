@@ -26,8 +26,6 @@ class Plan < ApplicationRecord
   validates :name, :company, :price_per_walk, :interval, presence: true
   validates :interval, :price_per_walk, numericality: { greater_than_or_equal_to: 0 }
 
-  before_save :calculate_total_price
-
   delegate :name, to: :company, prefix: true
 
   def virtual_dollars=(amount)
@@ -39,12 +37,7 @@ class Plan < ApplicationRecord
   end
 
   def calculate_total_price
-    self.total_price = price_per_walk * interval
-  end
-
-  def days_and_values
-    { monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday,
-      friday: friday, saturday: saturday, sunday: sunday }
+    update(total_price: price_per_walk * interval)
   end
 
   def selected_days_of_the_week
@@ -53,5 +46,12 @@ class Plan < ApplicationRecord
 
   def scheduled_days
     selected_days_of_the_week.map { |d| d.to_s.capitalize }
+  end
+
+  private
+
+  def days_and_values
+    { monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday,
+      friday: friday, saturday: saturday, sunday: sunday }
   end
 end
