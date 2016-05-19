@@ -87,10 +87,14 @@
     </div>
   </div>
 
-  <div class="field">
-    <%= f.label :add_tax? %>
-    <%= f.check_box :taxable %>
-  </div>
+  <% if taxes_are_set_up %>
+    <div class="field">
+      <%= f.label :add_tax? %>
+      <%= f.check_box :taxable %>
+    </div>
+  <% else %>
+
+  <% end %>
 
   <div class="row grand-total">
     <p class="total">Total cost of plan: </p><p data-role="money", id="grand-total">$0</p>

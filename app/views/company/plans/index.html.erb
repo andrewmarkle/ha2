@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<% if current_company.tax.present? %>
-  <%= link_to "Taxes", taxes_path %>
+<% if taxes_are_set_up %>
+  <%= link_to "Taxes", tax_path(company_tax_id) %>
 <% else %>
   <%= link_to "Taxes", new_tax_path %>
 <% end %>

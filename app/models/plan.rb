@@ -26,7 +26,7 @@ class Plan < ApplicationRecord
   validates :name, :company, :price_per_walk, :interval, presence: true
   validates :interval, :price_per_walk, numericality: { greater_than_or_equal_to: 0 }
 
-  delegate :name, to: :company, prefix: true
+  delegate :name, :tax, to: :company, prefix: true
 
   def virtual_dollars=(amount)
     @virtual_dollars = update(price_per_walk: amount.to_money.cents)

@@ -53,10 +53,10 @@ Rails.application.configure do
   # Bullet setup to detect n + 1 queries
   config.after_initialize do
     Bullet.enable = true
-    Bullet.alert = true
+    Bullet.alert = false
     Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.rails_logger = true
+    Bullet.console = false
+    Bullet.rails_logger = false
     Bullet.add_footer = true
   end
 end
