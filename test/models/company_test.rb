@@ -14,32 +14,26 @@
 #  updated_at             :datetime         not null
 #
 
-require 'rails_helper'
-require 'support/shoulda_matchers_setup'
+require 'test_helper'
 
-RSpec.describe Company, type: :model do
-  context 'validations' do
-    it { should validate_presence_of :name }
-  end
+class CompanyTest < ActiveSupport::TestCase
+  should have_many(:users)
+  should validate_presence_of :name
 
-  context 'associations' do
-    it { should have_many(:users) }
-  end
-
-  it "makes sure the url won't work withouht the http" do
+  test "makes sure the url won't work withouht the http" do
     company = Company.new(url: 'www.walkitoff.ca')
-    expect(company.valid?).to be_falsey
-    expect(company.errors[:url].any?).to be_truthy
+    refute(company.valid?)
+    assert(company.errors[:url].any?)
   end
 
-  it 'makes it so the user must type in http' do
+  test 'makes it so the user must type in http' do
     company = Company.new(url: 'http://www.walkitoff.ca')
-    expect(company.valid?).to be_falsey
-    expect(company.errors[:url].any?).to be_falsey
+    refute(company.valid?)
+    refute(company.errors[:url].any?)
   end
 
-  it 'allows the url to be blank' do
+  test 'allows the url to be blank' do
     company = Company.new(url: '')
-    expect(company.errors[:url].any?).to be_falsey
+    refute(company.errors[:url].any?)
   end
 end

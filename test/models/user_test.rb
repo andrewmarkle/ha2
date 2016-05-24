@@ -18,16 +18,10 @@
 #  company_id             :uuid             indexed
 #
 
-require 'rails_helper'
-require 'support/shoulda_matchers_setup'
+require 'test_helper'
 
-RSpec.describe User, type: :model do
-  context 'validations' do
-    it { should validate_presence_of(:email) }
-    it { should validate_presence_of(:password) }
-  end
-
-  context 'associations' do
-    it { should belong_to(:company) }
-  end
+class UserTest < ActiveSupport::TestCase
+  should validate_presence_of(:email)
+  should validate_presence_of(:password)
+  should belong_to(:company)
 end

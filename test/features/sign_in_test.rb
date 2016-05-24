@@ -1,10 +1,8 @@
-require 'rails_helper'
+require 'test_helper'
 require 'support/login_helper'
 
-feature 'user signs in' do
-  fixtures :all
-
-  scenario 'with valid email and password' do
+class UserSignInTest < Capybara::Rails::TestCase
+  test 'with valid email and password' do
     visit root_path
     click_link 'Sign In'
     fill_in 'user_email', with: 'user_a@example.com'
@@ -13,17 +11,17 @@ feature 'user signs in' do
     user_should_be_signed_in
   end
 
-  scenario 'with valid mixed-case email and password ' do
+  test 'with valid mixed-case email and password ' do
     sign_in_with 'user_b@example.com', 'password'
     user_should_be_signed_in
   end
 
-  scenario 'tries with invalid password' do
+  test 'tries with invalid password' do
     sign_in_with 'user_b@example.com', 'wrong_password'
     page_should_display_sign_in_error
   end
 
-  scenario 'tries with invalid email' do
+  test 'tries with invalid email' do
     sign_in_with 'unknown.email@example.com', 'password'
     page_should_display_sign_in_error
   end
@@ -31,11 +29,11 @@ feature 'user signs in' do
 private
 
   def user_should_be_signed_in
-    expect(page).to have_text 'Signed in'
-    expect(current_path).to eq(dashboard_path)
+    page.must_have_content 'Signed in'
+    assert_equal(dashboard_path, current_path)
   end
 
   def page_should_display_sign_in_error
-    expect(page).to have_text 'Invalid email or password'
+    page.must_have_content 'Invalid email or password'
   end
 end
